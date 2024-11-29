@@ -1,12 +1,15 @@
 class Solution {
 public:
     bool checkPerfectNumber(int num) {
-        int i,sum=0;
-        for(i=1;i<=num/2;i++)
+        int i,sum=1;
+        for(i=2;i<=sqrt(num);i++)
         {
-            if(num%i==0)
+            int pair;
+            
+            if(num%i==0 and num>1)
             {
-                sum=sum+i;
+                pair = num / i;
+                sum = sum + i + pair;
             }
         }
         if(sum==num)
